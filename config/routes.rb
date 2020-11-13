@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get '/index', to: 'mail#index'
+  get '/index', to: 'main#index'
   root 'main#index'
 end
