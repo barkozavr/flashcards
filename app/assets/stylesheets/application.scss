@@ -13,23 +13,37 @@
  *= require_tree .
  *= require_self
  */
+header .navbar-brand{
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+header .nav-item{
+	text-transform: uppercase;
+	margin-left: 50px;
+}
+
+header .nav-item a::after{
+	content: '';
+	display: block;
+	width: 100%;
+	background-color: #ccc;
+	height: 1px;
+	transform: scale(0);
+	transition: all .3s;
+}
+
+header .nav-item a:hover::after{
+	transform: scale(1);
+}
+
+body{
+	min-width: 320px;
+}
 
 #container {
-  margin: 48px auto;
-  width: 960px;
-}
-
-#container > section {
-  clear: both;
-}
-
-#container > header {
-  margin-bottom: 46px;
-}
-
-#container > header > h1 {
-  float: left;
-  margin: 0;
+  margin: 20px auto;
+  padding-left: 40px;
 }
 
 .navigation-links {
@@ -40,7 +54,3 @@
   display: inline-block;
   margin: 0 16px;
 }
-
-/* MISC */
-
-.clearfix:after {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;} html[xmlns].clearfix{display:block;} * html .clearfix{height:1%;}
