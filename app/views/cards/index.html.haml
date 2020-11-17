@@ -1,0 +1,13 @@
+.container
+  %table
+    %tr
+      %th= t 'original'
+      %th= t 'translate'
+      %th= t 'review_date'
+
+    - @cards.each do |card|
+      %tr
+        %th= card.original_text
+        %th= card.translated_text
+        %th= card.review_date
+        %th= link_to t('Show'), card_path(card)

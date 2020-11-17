@@ -13,37 +13,50 @@
  *= require_tree .
  *= require_self
  */
-header .navbar-brand{
-	font-size: 30px;
-	text-transform: uppercase;
-}
 
-header .nav-item{
-	text-transform: uppercase;
-	margin-left: 50px;
-}
+#links {
+  text-transform: uppercase;
+  font-size: 1em;
+  color: #808080;
+  text-decoration: none;
+ }
 
-header .nav-item a::after{
-	content: '';
-	display: block;
-	width: 100%;
-	background-color: #ccc;
-	height: 1px;
-	transform: scale(0);
-	transition: all .3s;
-}
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
 
-header .nav-item a:hover::after{
-	transform: scale(1);
-}
-
-body{
-	min-width: 320px;
+  &:hover {
+    color: grey;
+    text-decoration: none;
+  }
 }
 
 #container {
   margin: 20px auto;
-  padding-left: 40px;
+}
+
+header .nav-item a::after{
+  content: '';
+  display: block;
+  width: 100%;
+  background-color: #ccc;
+  height: 1px;
+  transform: scale(0);
+  transition: all .3s;
+}
+
+header .nav-item a:hover::after{
+  transform: scale(1);
+}
+
+body{
+  min-width: 320px;
 }
 
 .navigation-links {
