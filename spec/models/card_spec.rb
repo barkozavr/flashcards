@@ -7,11 +7,9 @@ RSpec.describe Card, type: :model do
   end
 
   describe "callbacks tests" do
-    before(:all) do
-      @card = create(:card)
-    end
+    let (:card) { create :card }
     it "ensures set_review_date before_create" do
-      expect(@card.review_date).to eq(Date.current)
+      expect(card.review_date).to eq(Date.current + 3.days)
     end
   end
 end

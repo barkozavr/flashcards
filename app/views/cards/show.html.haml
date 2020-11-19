@@ -1,11 +1,12 @@
 .container
   %table
     %tr
-      %th= t 'original'
-      %th= t 'translate'
-      %th= t 'review_date'
+      %th= t 'card.page.original'
+      %th= t 'card.page.translate'
+      %th= t 'card.page.review_date'
     %tr
       %td= @card.original_text
       %td= @card.translated_text
       %td= @card.review_date.strftime('%d-%m-%Y')
-
+      %th= link_to t('card.page.destroy'), card_path(@card), method: :delete, data: { confirm: t('card.js.sure?') }
+      %th= link_to t('card.page.edit'), edit_card_path(@card)

@@ -1,0 +1,10 @@
+en:
+  simple_form:
+    labels:
+      card:
+        original_text: 'Original'
+        translated_text: 'Translate'
+    placeholders:
+      card:
+        original_text: 'Word...'
+        translated_text: 'Translate...'

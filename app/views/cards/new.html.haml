@@ -1,6 +1,2 @@
-.container
-  = form_with(model: @card, local: true) do |f|
-    .field
-      = f.text_area :original_text, placeholder: t('original')
-      = f.text_area :translated_text, placeholder: t('translate')
-    = f.submit t('save'), class: "btn btn-primary"
+%h4= t 'card.title.create'
+= render 'form'

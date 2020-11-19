@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
-    %title= t 'title'
+    %title= t 'header.title'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -13,13 +13,13 @@
     %header
       .container
         %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-          = link_to t('title'), root_path, class:"navbar", id:"logo"
+          = link_to t('header.title'), root_path, class:"navbar", id:"logo"
           %button.navbar-toggler(aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarSupportedContent" data-toggle="collapse" type="button")
             %span.navbar-toggler-icon
           .collapse.navbar-collapse#navbarSupportedContent
             %ul.navbar-nav.navigation-links.ml-auto
-              %li.nav-item.nav-link= link_to t('all_cards'), cards_path, id: "links"
-              %li.nav-item.nav-link= link_to t('add_card'), new_card_path, id: "links"
+              %li.nav-item.nav-link= link_to t('header.all_cards'), cards_path, id: "links"
+              %li.nav-item.nav-link= link_to t('header.add_card'), new_card_path, id: "links"
 
     .container#container
       - flash.each do |type, msg|

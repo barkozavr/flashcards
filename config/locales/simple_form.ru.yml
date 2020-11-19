@@ -1,0 +1,10 @@
+ru:
+  simple_form:
+    labels:
+      card:
+        original_text: 'Оригинал'
+        translated_text: 'Перевод'
+    placeholders:
+      card:
+        original_text: 'Слово...'
+        translated_text: 'Перевод...'
