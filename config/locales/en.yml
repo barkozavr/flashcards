@@ -13,6 +13,8 @@ en:
       destroy: "Delete"
       edit: "Edit"
     note:
+      it_true: "True!"
+      it_false: "False!"
       changed: "Changes saved"
       deleted: "Deleted"
       saved: "Card saved"
@@ -22,6 +24,7 @@ en:
     js:
       sure?: "Are you sure?"
     button:
+      check: "Check it!"
       save: "Save"
       save_changes: "Save changes"
     title:

@@ -9,8 +9,7 @@ class CardsController < ApplicationController
     @card = Card.new
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @card = Card.new(card_params)
@@ -23,8 +22,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @card.update(card_params)

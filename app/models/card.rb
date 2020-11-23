@@ -1,4 +1,5 @@
 class Card < ApplicationRecord
+  TIME_INTERVAL = 3
   validates :original_text, presence: true, length: { maximum: 50 }
   validates :translated_text, presence: true, length: { maximum: 50 }
   before_create :set_review_date
@@ -11,11 +12,15 @@ class Card < ApplicationRecord
     end
   end
 
+  scope :out_of_time, -> { where("review_date <= ?", Date.today) }
+
+  def self.random_card
+    out_of_time.order('RANDOM()').take
+  end
+
   private
 
-  TIME_INTERVAL = 3
-
   def set_review_date
-    self.review_date = DateTime.now + TIME_INTERVAL.days
+    self.review_date = Date.today + TIME_INTERVAL.days
   end
 end

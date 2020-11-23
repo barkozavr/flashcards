@@ -13,6 +13,8 @@ ru:
       destroy: "Удалить"
       edit: "Редактировать"
     note:
+      it_true: "Верно!"
+      it_false: "Неверно!"
       changed: "Изменения сохранены"
       deleted: "Удалено"
       saved: "Карточка сохранена"
@@ -22,6 +24,7 @@ ru:
     js:
       sure?: "Вы уверены?"
     button:
+      check: "Проверка"
       save: "Сохранить"
       save_changes: "Сохранить изменения"
     title:

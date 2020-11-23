@@ -1,0 +1,7 @@
+.text-center
+  - if @card
+    %h2= @card.original_text
+    = form_tag testers_path(@card), remote: true do
+      = hidden_field_tag(:card_id, @card.id)
+      = text_field_tag :answer
+      = submit_tag t'card.button.check', class: "btn btn-light"
