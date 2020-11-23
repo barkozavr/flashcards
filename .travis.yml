@@ -1,7 +1,11 @@
 language: ruby
-before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-cache: bundler
+cache: 
+  - bundler
+  - yarn
 services:
   - postgresql
+before_script:
+  - yarn
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+  
