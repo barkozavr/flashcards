@@ -5,6 +5,3 @@ before_script:
 cache: bundler
 services:
   - postgresql
-script:
-  - bundle exec rails webpacker:compile
-  - bundle exec rails spec
