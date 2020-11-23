@@ -1,0 +1,19 @@
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  min_messages: ERROR
+
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *<%= ENV['DB'] || "postgresql" %>
+development:
+  <<: *defaults
+  database: flashcards_dev
+test:
+  <<: *defaults
+  database: flashcards_test
+production:
+  <<: *defaults 
