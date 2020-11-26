@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CardsController,  type: :controller do
-  let!(:card) { create :card }
+  let!(:user) { create :user }
+  let(:card) { create :card, user: user }
 
   describe 'GET index' do
     before do
@@ -48,22 +49,22 @@ RSpec.describe CardsController,  type: :controller do
   describe 'POST create' do
     context 'with valid card' do
       it 'creates a card' do
-        expect { post :create, params: { card: attributes_for(:card) } }.to change(Card, :count).by(1)
+        expect { post :create, params: { user_id: user.id, card: attributes_for(:card) } }.to change(Card, :count).by(1)
       end
 
       it 'redirects to show page' do
-        post :create, params: { card: attributes_for(:card) }
+        post :create, params: { user_id: user.id, card: attributes_for(:card) }
         expect(response).to redirect_to cards_path
       end
     end
 
     context 'with invalid card' do
       it "won't create a card" do
-        expect { post :create, params: { card: attributes_for(:invalid_card) } }.to_not change(Card, :count)
+        expect { post :create, params: { user_id: user.id, card: attributes_for(:invalid_card) } }.to_not change(Card, :count)
       end
 
       it 'renders new template' do
-        post :create, params: { card: attributes_for(:invalid_card) }
+        post :create, params: { user_id: user.id, card: attributes_for(:invalid_card) }
         expect(response).to render_template :new
       end
     end
@@ -123,6 +124,7 @@ RSpec.describe CardsController,  type: :controller do
   end
 
   describe 'DELETE destroy' do
+    let!(:card) { create :card, user: user }
     it 'destroys card' do
       expect do
         delete :destroy, params: { id: card.id }

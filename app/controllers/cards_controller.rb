@@ -12,7 +12,8 @@ class CardsController < ApplicationController
   def show; end
 
   def create
-    @card = Card.new(card_params)
+    @user = User.find(params[:user_id])
+    @card = @user.cards.build(card_params)
     if @card.save
       redirect_to cards_path
       flash[:info] = t('card.note.saved')

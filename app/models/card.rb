@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class Card < ApplicationRecord
   TIME_INTERVAL = 3
+  belongs_to :user
   validates :original_text, presence: true, length: { maximum: 50 }
   validates :translated_text, presence: true, length: { maximum: 50 }
   before_create :set_review_date

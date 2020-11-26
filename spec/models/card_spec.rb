@@ -6,8 +6,13 @@ RSpec.describe Card, type: :model do
     it { should validate_presence_of(:original_text) }
   end
 
+  describe 'assotistions' do
+    it { should belong_to(:user) }  
+  end
+
   describe "callbacks tests" do
-    let (:card) { create :card }
+    let(:user) { create :user }
+    let(:card) { create :card, user: user }
     it "ensures set_review_date before_create" do
       expect(card.review_date).to eq(Date.today + Card::TIME_INTERVAL.days)
     end

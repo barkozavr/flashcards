@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe TestersController do
-  let!(:card) { create(:card) }
+  let(:user) { create :user }
+  let(:card) { create :card, user: user }
   before do
     card.update(review_date: Date.today)
     visit root_path
