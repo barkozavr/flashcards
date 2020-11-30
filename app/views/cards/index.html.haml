@@ -1,15 +1,15 @@
-.container
-  %table
+%table.table.table-sm
+  %thead
     %tr
-      %th= t 'card.page.original'
-      %th= t 'card.page.translate'
-      %th= t 'card.page.review_date'
-
+      %th{ scope:'col' }= t 'card.page.original'
+      %th{ scope:'col' }= t 'card.page.translate'
+      %th{ scope:'col' }= t 'card.page.review_date'
+  %tbody
     - @cards.each do |card|
       %tr
         %th= card.original_text
         %th= card.translated_text
-        %th= card.review_date
-        %th= link_to t('card.page.show'), card_path(card)
-        %th= link_to t('card.page.destroy'), card_path(card), method: :delete, data: { confirm: t('card.js.sure?') }
-        %th= link_to t('card.page.edit'), edit_card_path(card)
+        %th= card.review_date.strftime('%d-%m-%Y')
+        %td= link_to t('card.page.show'), card_path(card)
+        %td= link_to t('card.page.destroy'), card_path(card), method: :delete, data: { confirm: t('card.js.sure?') }
+        %td= link_to t('card.page.edit'), edit_card_path(card)

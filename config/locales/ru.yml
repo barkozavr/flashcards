@@ -30,3 +30,27 @@ ru:
     title:
       create: "Создание карточки"  
       editing: "Редактирование карточки"
+  user:
+    page:
+      editing: "Редактирование пользователя"
+      creating: "Создание пользователя"
+      log_in: "Вход"
+      gh_login: "Вход через GitHub"
+    button:
+      edit: "Редактировать"
+      sign_in: "Регистрация"
+      log_in: "Войти"
+      log_out: "Выйти"
+    field:
+      email: "Почта"
+      password: "Пароль"
+    note:
+      created: "Пользователь успешно создан"
+      updated: "Пользователь успешно изменён"
+      log_in: "Вход выполнен"
+      log_out: "Вы вышли из системы"
+      log_in_false: "Ошибка входа"
+      logged_from: "Выполнен вход через"
+    alert:
+      log_in_first: "Пожалуйста, сначала войдите"
+      failed_from: "Ошибка входа через GitHub"

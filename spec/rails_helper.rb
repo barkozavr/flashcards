@@ -8,6 +8,11 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
+require 'sorcery'
+
+RSpec.configure do |config|
+  config.include Sorcery::TestHelpers::Rails::Controller
+end
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

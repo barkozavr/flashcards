@@ -2,18 +2,17 @@ class CardsController < ApplicationController
   before_action :find_card, only: %i[show edit update destroy]
 
   def index
-    @cards = Card.all
+    @cards = current_user.cards
   end
 
   def new
-    @card = Card.new
+    @card = current_user.cards.build
   end
 
   def show; end
 
   def create
-    @user = User.find(params[:user_id])
-    @card = @user.cards.build(card_params)
+    @card = current_user.cards.build(card_params)
     if @card.save
       redirect_to cards_path
       flash[:info] = t('card.note.saved')
@@ -46,6 +45,7 @@ class CardsController < ApplicationController
   end
 
   def find_card
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find_by(id: params[:id])
+    redirect_to cards_path if @card.nil?
   end
 end

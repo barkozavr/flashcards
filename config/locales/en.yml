@@ -30,3 +30,27 @@ en:
     title:
       create: "Create card"
       editing: "Editing card"
+  user:
+    page:
+      editing: "Editing user"
+      creating: "Create user"
+      log_in: "Login"
+      gh_login: "Login with GitHub"
+    button:
+      edit: "Edit"
+      sign_in: "Registration"
+      log_in: "Login"
+      log_out: "Logout"
+    fields:
+      email: "Email"
+      password: "Password"
+    note:
+      created: "User was successfully create"
+      updated: "User was successfully updated"
+      log_in: "Login siccessful"
+      log_out: "Loggeg out"
+      log_in_false: "Login failed"
+      logged_from: "Logged in from"
+    alert:
+      log_in_first: "Please login first"
+      failed_from: "Failed to login from"

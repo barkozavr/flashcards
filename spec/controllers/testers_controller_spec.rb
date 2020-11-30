@@ -6,6 +6,7 @@ describe TestersController, type: :controller do
 
   before do
     card.update(review_date: Date.today)
+    login_user(user)
   end
 
   describe 'GET index' do

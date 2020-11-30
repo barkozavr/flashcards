@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.hosts << "lvh.me"
   config.cache_classes = false
   config.eager_load = false
   config.consider_all_requests_local = true

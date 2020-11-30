@@ -1,6 +1,6 @@
 class TestersController < ApplicationController
   def index
-    @card = Card.random_card
+    @card = current_user.cards.random_card
   end
 
   def create

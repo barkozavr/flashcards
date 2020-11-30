@@ -1,0 +1,10 @@
+.container
+  %table
+    %tr
+      %th= t('user.field.email')
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %th= link_to t('card.page.show'), user_path(user)
+        %th= link_to t('card.page.destroy'), user_path(user), method: :delete, data: { confirm: t('card.js.sure?') }
+        %th= link_to t('card.page.edit'), edit_user_path(user)

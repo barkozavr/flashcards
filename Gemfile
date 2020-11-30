@@ -12,11 +12,13 @@ gem 'rails',       '~> 6.0.3', '>= 6.0.3.4'
 gem 'rails-i18n'
 gem 'sass-rails',  '>= 6'
 gem 'simple_form'
+gem 'sorcery'
 gem 'turbolinks',  '~> 5'
 gem 'webpacker',   '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails',              '~> 4.0.1'

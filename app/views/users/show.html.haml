@@ -1,0 +1,7 @@
+.container
+  %table
+    %tr
+    %tr
+      %td= @user.email
+      %th= link_to t('card.page.destroy'), user_path(@user), method: :delete, data: { confirm: t('card.js.sure?') }
+      %th= link_to t('card.page.edit'), edit_user_path(@user)

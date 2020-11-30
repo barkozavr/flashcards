@@ -4,7 +4,8 @@ describe TestersController do
   let(:user) { create :user }
   let(:card) { create :card, user: user }
   before do
-    card.update(review_date: Date.today)
+    card.update!(review_date: Date.today)
+    login("mail@mail.ru", "123456")
     visit root_path
   end
 

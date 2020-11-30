@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe CardsController,  type: :controller do
   let!(:user) { create :user }
   let(:card) { create :card, user: user }
+  before do
+    login_user(user)
+  end
 
   describe 'GET index' do
     before do
@@ -60,11 +63,11 @@ RSpec.describe CardsController,  type: :controller do
 
     context 'with invalid card' do
       it "won't create a card" do
-        expect { post :create, params: { user_id: user.id, card: attributes_for(:invalid_card) } }.to_not change(Card, :count)
+        expect { post :create, params: { user_id: user.id, card: attributes_for(:card, :invalid) } }.to_not change(Card, :count)
       end
 
       it 'renders new template' do
-        post :create, params: { user_id: user.id, card: attributes_for(:invalid_card) }
+        post :create, params: { user_id: user.id, card: attributes_for(:card, :invalid) }
         expect(response).to render_template :new
       end
     end

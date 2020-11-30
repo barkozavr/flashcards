@@ -20,11 +20,20 @@
             %ul.navbar-nav.navigation-links.ml-auto
               %li.nav-item.nav-link= link_to t('header.all_cards'), cards_path, id: "links"
               %li.nav-item.nav-link= link_to t('header.add_card'), new_card_path, id: "links"
+            #nav
+              - if current_user
+                = link_to t('user.button.edit'), edit_user_path(current_user.id)
+                = link_to t('user.button.log_out'), :logout, method: :post
+              - else
+                = link_to t('user.button.sign_in'), new_user_path
+                = link_to t('user.button.log_in'), :login
+                = link_to t('user.page.gh_login'), auth_at_provider_path(:provider => :github)
 
     .container#container
-      - flash.each do |type, msg|
-        = content_tag(:div, msg, class: "alert alert-#{type}")
-      = yield
+      .jumbotron.text-center
+        - flash.each do |type, msg|
+          = content_tag(:div, msg, class: "alert alert-#{type}")
+        = yield
 
     %script{ crossorigin: "anonymous", integrity: "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", src: "https://code.jquery.com/jquery-3.2.1.slim.min.js" }
     %script{ crossorigin: "anonymous", integrity: "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" }

@@ -14,7 +14,7 @@ module Seeds
     private
 
     def create_user
-      @user = User.create!(email: "ex@gmail.com", password: "000000")
+      @user = User.create!(email: "example@gmail.com", password: "000000", password_confirmation: "000000")
     end
 
     def parsed_page

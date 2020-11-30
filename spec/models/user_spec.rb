@@ -8,5 +8,6 @@ RSpec.describe User, type: :model do
 
   describe 'assotiations' do
     it { should have_many(:cards) }
+    it { should have_many(:authentications) }
   end
 end
