@@ -4,7 +4,11 @@ en:
       card:
         original_text: 'Original'
         translated_text: 'Translate'
+        picture: 'Add a picture'
+        remove_picture: 'Ramove pic'
+        remote_picture_url: 'URL изображения'
     placeholders:
       card:
         original_text: 'Word...'
         translated_text: 'Translate...'
+        remote_picture_url: 'https://...'

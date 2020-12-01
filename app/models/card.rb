@@ -2,6 +2,7 @@
 
 class Card < ApplicationRecord
   TIME_INTERVAL = 3
+  mount_uploader :picture, PictureUploader
   belongs_to :user
   validates :original_text, presence: true, length: { maximum: 50 }
   validates :translated_text, presence: true, length: { maximum: 50 }

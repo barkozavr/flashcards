@@ -30,7 +30,7 @@
                 = link_to t('user.page.gh_login'), auth_at_provider_path(:provider => :github)
 
     .container#container
-      .jumbotron.text-center
+      .jumbotron
         - flash.each do |type, msg|
           = content_tag(:div, msg, class: "alert alert-#{type}")
         = yield

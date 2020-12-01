@@ -148,7 +148,7 @@ RSpec.describe UsersController, type: :controller do
 
     it 'redirects to card index page' do
       delete :destroy, params: { id: user.id }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to users_path
     end
   end
 end

@@ -1,10 +1,10 @@
 class TestersController < ApplicationController
   def index
-    @card = current_user.cards.random_card
+    @card = current_user.cards.random_card&.decorate
   end
 
   def create
-    @card = Card.find(params[:card_id])
+    @card = Card.find(params[:card_id]).decorate
     if CheckCard.new(@card).check_translation(params[:answer])
       flash[:info] = t('card.note.it_true')
     else

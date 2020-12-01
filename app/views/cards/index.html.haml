@@ -10,6 +10,7 @@
         %th= card.original_text
         %th= card.translated_text
         %th= card.review_date.strftime('%d-%m-%Y')
+        %th= card.current_picture
         %td= link_to t('card.page.show'), card_path(card)
         %td= link_to t('card.page.destroy'), card_path(card), method: :delete, data: { confirm: t('card.js.sure?') }
         %td= link_to t('card.page.edit'), edit_card_path(card)

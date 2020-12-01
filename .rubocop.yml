@@ -1,7 +1,7 @@
 Metrics/LineLength:
-  Enabled: false
+  Max: 200
 Style/StringLiterals:
   Enabled: false
 AllCops:
   Exclude:
-    - 'db/schema.rb'
+    - db/schema.rb
