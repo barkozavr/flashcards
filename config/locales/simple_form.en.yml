@@ -6,7 +6,11 @@ en:
         translated_text: 'Translate'
         picture: 'Add a picture'
         remove_picture: 'Ramove pic'
-        remote_picture_url: 'URL изображения'
+        remote_picture_url: 'URL of picture'
+        deck: 'Deck'
+      deck:
+        name: 'Name of deck'
+        current: 'Mark as current'
     placeholders:
       card:
         original_text: 'Word...'

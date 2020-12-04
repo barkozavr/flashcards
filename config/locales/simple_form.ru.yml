@@ -7,6 +7,10 @@ ru:
         picture: 'Добавить изображение'
         remove_picture: 'Удалить изображение'
         remote_picture_url: 'URL изображения'
+        deck: 'Колода'
+      deck:
+        name: 'Название колоды'
+        current: 'Пометить как текущую'
     placeholders:
       card:
         original_text: 'Слово...'

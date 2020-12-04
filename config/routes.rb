@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :testers, only: %i[index create]
   resources :cards
   resources :users
+  resources :decks
   resources :user_sessions, only: %i[new create destroy]
   get 'login', to: 'user_sessions#new', as: :login
   post 'logout', to: 'user_sessions#destroy', as: :logout

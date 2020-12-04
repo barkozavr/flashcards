@@ -6,8 +6,9 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
   end
 
-  describe 'assotiations' do
-    it { should have_many(:cards) }
+  describe 'associations' do
+    it { should have_many(:cards).through(:decks) }
+    it { should have_many(:decks) }
     it { should have_many(:authentications) }
   end
 end

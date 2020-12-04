@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe CardsController,  type: :controller do
+RSpec.describe CardsController, type: :controller do
   let!(:user) { create :user }
-  let(:card) { create :card, user: user }
+  let(:deck) { create :deck, user: user }
+  let(:card) { create :card, deck: deck }
   before do
     login_user(user)
   end
@@ -52,22 +53,26 @@ RSpec.describe CardsController,  type: :controller do
   describe 'POST create' do
     context 'with valid card' do
       it 'creates a card' do
-        expect { post :create, params: { user_id: user.id, card: attributes_for(:card) } }.to change(Card, :count).by(1)
+        expect do
+          post :create, params: { card: { deck_id: deck.id, original_text: 'o1', translated_text: 't1' } }
+        end.to change(Card, :count).by(1)
       end
 
       it 'redirects to show page' do
-        post :create, params: { user_id: user.id, card: attributes_for(:card) }
+        post :create, params: { card: { deck_id: deck.id, original_text: 'o2', translated_text: 't2' } }
         expect(response).to redirect_to cards_path
       end
     end
 
     context 'with invalid card' do
       it "won't create a card" do
-        expect { post :create, params: { user_id: user.id, card: attributes_for(:card, :invalid) } }.to_not change(Card, :count)
+        expect do
+          post :create, params: { card: { deck_id: deck.id, original_text: 'o2', translated_text: nil } }
+        end.to_not change(Card, :count)
       end
 
       it 'renders new template' do
-        post :create, params: { user_id: user.id, card: attributes_for(:card, :invalid) }
+        post :create, params: { card: { deck_id: deck.id, original_text: 'o2', translated_text: nil } }
         expect(response).to render_template :new
       end
     end
@@ -127,7 +132,7 @@ RSpec.describe CardsController,  type: :controller do
   end
 
   describe 'DELETE destroy' do
-    let!(:card) { create :card, user: user }
+    let!(:card) { create :card, deck: deck }
     it 'destroys card' do
       expect do
         delete :destroy, params: { id: card.id }

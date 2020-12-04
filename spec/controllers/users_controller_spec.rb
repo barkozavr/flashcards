@@ -73,22 +73,22 @@ RSpec.describe UsersController, type: :controller do
   describe 'POST create' do
     context 'with valid user' do
       it 'creates a user' do
-        expect { post :create, params: { user: attributes_for(:user, :valid) } }.to change(User, :count).by(1)
+        expect { post :create, params: { user: attributes_for(:user, :valid_user) } }.to change(User, :count).by(1)
       end
 
       it 'redirects to user page' do
-        post :create, params: { user: attributes_for(:user, :valid) }
+        post :create, params: { user: attributes_for(:user, :valid_user) }
         expect(response).to redirect_to users_path
       end
     end
 
     context 'with invalid user' do
       it "won't create a user" do
-        expect { post :create, params: { user: attributes_for(:user, :invalid) } }.to_not change(User, :count)
+        expect { post :create, params: { user: attributes_for(:user, :invalid_user) } }.to_not change(User, :count)
       end
 
       it 'renders new template' do
-        post :create, params: { user: attributes_for(:user, :invalid) }
+        post :create, params: { user: attributes_for(:user, :invalid_user) }
         expect(response).to render_template :new
       end
     end
@@ -136,7 +136,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    let!(:valid_user) { create :user, :valid }
+    let!(:valid_user) { create :user, :valid_user }
     before do
       login_user(user)
     end

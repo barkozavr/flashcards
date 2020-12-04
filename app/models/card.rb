@@ -3,10 +3,11 @@
 class Card < ApplicationRecord
   TIME_INTERVAL = 3
   mount_uploader :picture, PictureUploader
-  belongs_to :user
+  before_create :set_review_date
+  belongs_to :deck
+  delegate :user, to: :deck
   validates :original_text, presence: true, length: { maximum: 50 }
   validates :translated_text, presence: true, length: { maximum: 50 }
-  before_create :set_review_date
   validate :check_not_equal
 
   def check_not_equal

@@ -3,8 +3,8 @@
 class CardDecorator < Draper::Decorator
   delegate_all
 
-  def current_picture
+  def current_picture(quality = nil)
     return unless picture
-    h.tag :img, src: picture.url
+    h.tag :img, src: picture.url(quality)
   end
 end

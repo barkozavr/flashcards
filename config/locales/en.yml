@@ -45,7 +45,7 @@ en:
       email: "Email"
       password: "Password"
     note:
-      created: "User was successfully create"
+      created: "User was successfully created"
       updated: "User was successfully updated"
       log_in: "Login siccessful"
       log_out: "Loggeg out"
@@ -54,3 +54,20 @@ en:
     alert:
       log_in_first: "Please login first"
       failed_from: "Failed to login from"
+  deck:
+    note:
+      created: "Deck was successfully created"
+      updated: "Deck was successfully updated"
+      deleted: "Deck was deleted"
+    page:
+      editing: "Editing deck"
+      creating: "Creating deck"
+      deck: "Deck"
+      name: "Name of deck"
+      current: "Current"
+      edit: "Edit"
+      destroy: "Delete"
+      show: "Show"
+      all: "All decks"
+      add: "Add a deck"
+      cards: "Cards in deck"

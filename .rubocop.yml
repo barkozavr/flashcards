@@ -4,4 +4,4 @@ Style/StringLiterals:
   Enabled: false
 AllCops:
   Exclude:
-    - db/schema.rb
+    - 'db/**/*'

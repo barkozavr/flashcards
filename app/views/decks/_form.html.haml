@@ -1,0 +1,5 @@
+= simple_form_for(@deck, defaults: { required: false }) do |f|
+  .field
+    = f.input :name
+    = f.input :current
+    %br= f.submit t('card.button.save'), class: "btn btn-primary"

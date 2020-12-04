@@ -1,0 +1,14 @@
+%h2= t('deck.page.all')
+%table.table.table-striped
+  %thead
+    %tr
+      %th{ scope:'col' }= t('deck.page.name')
+      %th{ scope:'col' }= t('deck.page.current')
+  %tbody
+    - @decks.each do |deck|
+      %tr
+        %th= deck.name
+        %th= deck.current
+        %td= link_to t('deck.page.show'), deck_path(deck)
+        %td= link_to t('deck.page.edit'), edit_deck_path(deck)
+        %td= link_to t('deck.page.destroy'), deck_path(deck), method: :delete

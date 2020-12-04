@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class TestersController < ApplicationController
   def index
-    @card = current_user.cards.random_card&.decorate
+    @card = RandomCardQuery.new(current_user).call
   end
 
   def create

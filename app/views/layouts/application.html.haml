@@ -18,18 +18,19 @@
             %span.navbar-toggler-icon
           .collapse.navbar-collapse#navbarSupportedContent
             %ul.navbar-nav.navigation-links.ml-auto
-              %li.nav-item.nav-link= link_to t('header.all_cards'), cards_path, id: "links"
-              %li.nav-item.nav-link= link_to t('header.add_card'), new_card_path, id: "links"
-            #nav
               - if current_user
-                = link_to t('user.button.edit'), edit_user_path(current_user.id)
-                = link_to t('user.button.log_out'), :logout, method: :post
+                %li.nav-item.nav-link= link_to t('user.button.edit'), edit_user_path(current_user.id), id: "links"
+                %li.nav-item.nav-link= link_to t('user.button.log_out'), :logout, method: :post, id: "links"
               - else
-                = link_to t('user.button.sign_in'), new_user_path
-                = link_to t('user.button.log_in'), :login
-                = link_to t('user.page.gh_login'), auth_at_provider_path(:provider => :github)
-
-    .container#container
+                %li.nav-item.nav-link= link_to t('user.button.sign_in'), new_user_path, id: "links"
+                %li.nav-item.nav-link= link_to t('user.button.log_in'), :login, id: "links"
+                %li.nav-item.nav-link= link_to t('user.page.gh_login'), auth_at_provider_path(:provider => :github), id: "links"
+    .container
+      .btn-group
+        = link_to t('header.add_card'), new_card_path, :class => "btn btn-outline-secondary"
+        = link_to t('header.all_cards'), cards_path, :class => "btn btn-outline-secondary"
+        = link_to t('deck.page.add'), new_deck_path, :class => "btn btn-outline-dark"
+        = link_to t('deck.page.all'), decks_path, :class => "btn btn-outline-dark"
       .jumbotron
         - flash.each do |type, msg|
           = content_tag(:div, msg, class: "alert alert-#{type}")
