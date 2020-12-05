@@ -42,6 +42,7 @@ en:
       log_in: "Login"
       log_out: "Logout"
     fields:
+      list: "Список пользователей"
       email: "Email"
       password: "Password"
     note:

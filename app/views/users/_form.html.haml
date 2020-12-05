@@ -1,6 +1,7 @@
-= simple_form_for(@user, defaults: { required: false }) do |f|
-  .field
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
-  = f.submit t('card.button.save'), class: "btn btn-primary"
+.row.justify-content-center
+  = simple_form_for(@user, defaults: { required: false }) do |f|
+    .field.text-center
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation
+      = f.submit t('card.button.save'), class: "btn btn-primary"

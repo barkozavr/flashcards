@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 CarrierWave.configure do |config|
+  if Rails.env.production?
+    config.root = Rails.root.join('tmp')
+    config.cache_dir = 'carrierwave'
+  end
   config.fog_credentials = {
     provider:              'AWS',                          # required
     aws_access_key_id:     ENV['AWS_ACCESS_KEY_ID'],       # required unless using use_iam_profile

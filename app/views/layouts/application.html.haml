@@ -12,7 +12,7 @@
   %body
     %header
       .container
-        %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        %nav.navbar.navbar-expand-lg.navbar-light
           = link_to t('header.title'), root_path, class:"navbar", id:"logo"
           %button.navbar-toggler(aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarSupportedContent" data-toggle="collapse" type="button")
             %span.navbar-toggler-icon
@@ -25,16 +25,18 @@
                 %li.nav-item.nav-link= link_to t('user.button.sign_in'), new_user_path, id: "links"
                 %li.nav-item.nav-link= link_to t('user.button.log_in'), :login, id: "links"
                 %li.nav-item.nav-link= link_to t('user.page.gh_login'), auth_at_provider_path(:provider => :github), id: "links"
-    .container
-      .btn-group
-        = link_to t('header.add_card'), new_card_path, :class => "btn btn-outline-secondary"
-        = link_to t('header.all_cards'), cards_path, :class => "btn btn-outline-secondary"
+  .container
+    .row.justify-content-center
+      .btn-group.justify-content-center
+        = link_to t('header.add_card'), new_card_path, :class => "btn btn-outline-dark"
+        = link_to t('header.all_cards'), cards_path, :class => "btn btn-outline-dark"
         = link_to t('deck.page.add'), new_deck_path, :class => "btn btn-outline-dark"
         = link_to t('deck.page.all'), decks_path, :class => "btn btn-outline-dark"
-      .jumbotron
+    .jumbotron
+      .text-center
         - flash.each do |type, msg|
           = content_tag(:div, msg, class: "alert alert-#{type}")
-        = yield
+      = yield
 
     %script{ crossorigin: "anonymous", integrity: "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", src: "https://code.jquery.com/jquery-3.2.1.slim.min.js" }
     %script{ crossorigin: "anonymous", integrity: "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" }

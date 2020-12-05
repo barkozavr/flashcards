@@ -1,10 +1,10 @@
-.row
+.row.justify-content-center
   = simple_form_for @card do |f|
-    .field
-      = f.input :original_text
-      = f.input :translated_text
+    .field.text-center
+      = f.input :original_text, label: false
+      = f.input :translated_text, label: false
       = f.association :deck, collection: current_user.decks
       = @card.current_picture
-      %br= f.submit t('card.button.save'), class: "btn btn-primary"
-      = f.input :remote_picture_url
       = f.input :picture
+      = f.input :remote_picture_url, label: false
+      %br= f.submit t('card.button.save'), class: "btn btn-primary"

@@ -1,6 +1,11 @@
-= form_tag user_sessions_path, method: :post do
-  = label_tag      :email
-  = text_field_tag :email
-  = label_tag          :password
-  = password_field_tag :password
-  = submit_tag  t('user.button.log_in'), class: "btn btn-primary"
+.row.justify-content-center
+  = form_tag user_sessions_path, method: :post do
+    .field
+      .form-group.text-right
+        = label_tag      :email
+        = text_field_tag :email
+      .form-group.text-right
+        = label_tag          :password
+        = password_field_tag :password
+    .row.justify-content-center
+      = submit_tag  t('user.button.log_in'), class: "btn btn-primary"

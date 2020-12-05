@@ -2,17 +2,15 @@ ru:
   simple_form:
     labels:
       card:
-        original_text: 'Оригинал'
-        translated_text: 'Перевод'
         picture: 'Добавить изображение'
         remove_picture: 'Удалить изображение'
-        remote_picture_url: 'URL изображения'
         deck: 'Колода'
       deck:
-        name: 'Название колоды'
         current: 'Пометить как текущую'
     placeholders:
+      deck:
+        name: 'Название'
       card:
-        original_text: 'Слово...'
-        translated_text: 'Перевод...'
-        remote_picture_url: 'https://...'
+        original_text: 'Введите слово...'
+        translated_text: 'Введите перевод...'
+        remote_picture_url: 'URL изображения'

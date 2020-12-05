@@ -2,17 +2,15 @@ en:
   simple_form:
     labels:
       card:
-        original_text: 'Original'
-        translated_text: 'Translate'
         picture: 'Add a picture'
         remove_picture: 'Ramove pic'
-        remote_picture_url: 'URL of picture'
         deck: 'Deck'
       deck:
-        name: 'Name of deck'
         current: 'Mark as current'
     placeholders:
+      deck:
+        name: 'Name'
       card:
         original_text: 'Word...'
         translated_text: 'Translate...'
-        remote_picture_url: 'https://...'
+        remote_picture_url: 'URL of picture'

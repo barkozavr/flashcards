@@ -1,7 +1,8 @@
-.container
-  %table
+%table.table.table-striped
+  %thead
     %tr
-      %th= t('user.field.email')
+      %th= t('user.field.list')
+  %tbody
     - @users.each do |user|
       %tr
         %td= user.email

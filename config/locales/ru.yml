@@ -37,11 +37,12 @@ ru:
       log_in: "Вход"
       gh_login: "Вход через GitHub"
     button:
-      edit: "Редактировать"
+      edit: "Аккаунт"
       sign_in: "Регистрация"
       log_in: "Войти"
       log_out: "Выйти"
     field:
+      list: "Список пользователей"
       email: "Почта"
       password: "Пароль"
     note:
