@@ -3,10 +3,9 @@ require 'rails_helper'
 describe TestersController, type: :controller do
   let!(:user) { create :user }
   let(:deck) { create :deck, user: user }
-  let(:card) { create :card, deck: deck }
+  let!(:card) { create :card, deck: deck }
 
   before do
-    card.update(review_date: Date.today)
     login_user(user)
   end
 
@@ -34,10 +33,25 @@ describe TestersController, type: :controller do
     end
 
     context 'when answer is false' do
-      it 'redirect to testers_path' do
+      before do
         post :create, params: { card_id: card.id, answer: 'blalba' }
-        expect(flash[:warning]).to eq I18n.t('card.note.it_false')
+      end
+      it 'redirect to testers_path' do
         expect(response).to redirect_to testers_path
+      end
+
+      it 'returns flash messages' do
+        expect(flash[:warning]).to eq "Неверно! Осталось 2 попытки."
+      end
+    end
+
+    context 'with 3 failes' do
+      before do
+        card.update!(attempt: 2)
+      end
+      it 'returns flash messages' do
+        post :create, params: { card_id: card.id, answer: 'blalba' }
+        expect(flash[:danger]).to eq I18n.t('card.note.incorrect_with_reset', translate: card.translated_text)
       end
     end
   end

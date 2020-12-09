@@ -7,11 +7,18 @@ class TestersController < ApplicationController
 
   def create
     @card = Card.find(params[:card_id]).decorate
-    if CheckCard.new(@card).check_translation(params[:answer])
-      flash[:info] = t('card.note.it_true')
-    else
-      flash[:warning] = t('card.note.it_false')
+    case checker.call
+    when :correct
+      flash[:info] = I18n.t('card.note.it_true')
+    when :incorrect_with_reset
+      flash[:danger] = I18n.t('card.note.incorrect_with_reset', translate: @card.translated_text)
+    when :incorrect
+      flash[:warning] = I18n.t('card.note.incorrect', count: checker.attempts_left)
     end
     redirect_back(fallback_location: testers_path)
+  end
+
+  def checker
+    @checker ||= CheckCard.new(@card, params[:answer])
   end
 end

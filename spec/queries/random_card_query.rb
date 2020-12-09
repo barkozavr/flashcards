@@ -9,8 +9,8 @@ describe RandomCardQuery do
   let(:card) { create :card, deck: deck }
   let(:second_card) { create :card, deck: second_deck }
   before do
-    card.update!(review_date: Date.today)
-    second_card.update!(review_date: Date.today)
+    card.update!(review_date: Time.current)
+    second_card.update!(review_date: Time.current)
   end
 
   it 'returns card from current deck' do

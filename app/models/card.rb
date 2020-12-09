@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Card < ApplicationRecord
-  TIME_INTERVAL = 3
   mount_uploader :picture, PictureUploader
   before_create :set_review_date
   belongs_to :deck
@@ -17,7 +16,7 @@ class Card < ApplicationRecord
     end
   end
 
-  scope :out_of_time, -> { where("review_date <= ?", Date.today) }
+  scope :out_of_time, -> { where("review_date <= ?", Time.current) }
 
   def self.random_card
     out_of_time.order('RANDOM()').take
@@ -26,6 +25,6 @@ class Card < ApplicationRecord
   private
 
   def set_review_date
-    self.review_date = Date.today + TIME_INTERVAL.days
+    self.review_date = Time.current
   end
 end

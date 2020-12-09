@@ -18,6 +18,10 @@ en:
       changed: "Changes saved"
       deleted: "Deleted"
       saved: "Card saved"
+      incorrect:
+        one: Wrong! %{count} attempt left.
+        few: Wrong! %{count} attempts left.
+      incorrect_with_reset: Wrong again! Have to learn from the beginning. The correct answer is - %{translate}
     error:
       equal: "should not be equal original text"
       fail: "Smth went wrong"

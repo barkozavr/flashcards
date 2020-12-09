@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# for seeds.rb
 require 'open-uri'
 module Seeds
   class Cards
@@ -39,8 +38,6 @@ module Seeds
           deck_id: @deck.id
         )
       end
-      # only for tester
-      @deck.cards.sample(5).each { |card| card.update!(review_date: Date.today) }
     end
   end
 end

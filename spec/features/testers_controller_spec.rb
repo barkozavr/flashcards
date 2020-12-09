@@ -3,9 +3,8 @@ require 'rails_helper'
 describe TestersController do
   let!(:user) { create :user }
   let(:deck) { create :deck, user: user }
-  let(:card) { create :card, deck: deck }
+  let!(:card) { create :card, deck: deck }
   before do
-    card.update!(review_date: Date.today)
     login("mail@mail.ru", "123456")
     visit root_path
   end

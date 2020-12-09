@@ -15,7 +15,7 @@ RSpec.describe Card, type: :model do
     let(:deck) { create :deck, user: user }
     let(:card) { create :card, deck: deck }
     it "ensures set_review_date before_create" do
-      expect(card.review_date).to eq(Date.today + Card::TIME_INTERVAL.days)
+      expect(card.review_date).to eq(Time.current.to_date)
     end
   end
 end
