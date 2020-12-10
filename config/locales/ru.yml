@@ -14,6 +14,7 @@ ru:
       edit: "Редактировать"
     note:
       it_true: "Верно!"
+      it_true_with_typo: Верно, но с опечаткой. Вы ввели %{answ}, а правильно - %{translate}.
       it_false: "Неверно!"
       changed: "Изменения сохранены"
       deleted: "Удалено"

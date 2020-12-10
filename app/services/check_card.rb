@@ -17,24 +17,43 @@ class CheckCard
   end
 
   def call
-    result = nil
-    attrs =
-    if answer == card.translated_text
-      result = :correct
-      { true_answers: card.true_answers + 1, attempt: 0 }
-    elsif card.attempt >= 2
-      result = :incorrect_with_reset
-      { attempt: 0, true_answers: 1 }
-    else
-      result = :incorrect
-      { attempt: card.attempt + 1, true_answers: card.true_answers }
-    end
-    true_answ = attrs[:true_answers] || 0
-    card.update!(attrs.merge(review_date: Time.current + REVIEW_PERIODS[true_answ]))
+    new_attrs, result = check_card_and_build_new_attributes
+    card.update!(new_attrs.merge(review_date: Time.current + REVIEW_PERIODS[true_answers]))
     result
+  end
+
+  def true_answers
+    check_card_and_build_new_attributes.first[:true_answers] || 0
+  end
+
+  def check_card_and_build_new_attributes
+    case levenshtein_check
+    when 0
+      [correct_case, :correct]
+    when 1
+      [correct_case, :correct_with_one_typo]
+    else
+      incorrect_case
+    end
+  end
+
+  def correct_case
+    { true_answers: card.true_answers + 1, attempt: 0 }
+  end
+
+  def incorrect_case
+    if card.attempt >= 2
+      [{ attempt: 0, true_answers: 1 }, :incorrect_with_reset]
+    else
+      [{ attempt: card.attempt + 1, true_answers: card.true_answers }, :incorrect]
+    end
   end
 
   def attempts_left
     3 - card.attempt
+  end
+
+  def levenshtein_check
+    DamerauLevenshtein.distance(answer, card.translated_text)
   end
 end

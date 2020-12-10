@@ -3,22 +3,23 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby               '2.6.5'
 
-gem 'bootsnap',    '>= 1.4.2', require: false
-gem 'carrierwave', '~> 2.0'
+gem 'bootsnap',           '>= 1.4.2', require: false
+gem 'carrierwave',        '~> 2.0'
+gem 'damerau-levenshtein'
 gem 'draper'
 gem 'fog-aws'
 gem 'haml'
-gem 'jbuilder',    '~> 2.7'
+gem 'jbuilder',           '~> 2.7'
 gem 'mini_magick'
-gem 'pg',          '1.2.3'
-gem 'puma',        '~> 4.1'
-gem 'rails',       '~> 6.0.3', '>= 6.0.3.4'
+gem 'pg',                 '1.2.3'
+gem 'puma',               '~> 4.1'
+gem 'rails',              '~> 6.0.3', '>= 6.0.3.4'
 gem 'rails-i18n'
-gem 'sass-rails',  '>= 6'
+gem 'sass-rails',         '>= 6'
 gem 'simple_form'
 gem 'sorcery'
-gem 'turbolinks',  '~> 5'
-gem 'webpacker',   '~> 4.0'
+gem 'turbolinks',         '~> 5'
+gem 'webpacker',          '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

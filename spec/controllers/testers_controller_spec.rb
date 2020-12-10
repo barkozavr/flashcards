@@ -32,6 +32,26 @@ describe TestersController, type: :controller do
       end
     end
 
+    context 'when answer is ftrue' do
+      before do
+        post :create, params: { card_id: card.id, answer: 'transponder' }
+      end
+      it 'redirect to testers_path' do
+        expect(response).to redirect_to testers_path
+      end
+
+      it 'returns flash messages' do
+        expect(flash[:info]).to eq I18n.t('card.note.it_true')
+      end
+    end
+
+    context 'when answer is correct, but with one typo' do
+      it 'returns flash messages' do
+        post :create, params: { card_id: card.id, answer: 'tranpsonder' }
+        expect(flash[:info]).to eq I18n.t('card.note.it_true_with_typo', answ: 'tranpsonder', translate: card.translated_text)
+      end
+    end
+
     context 'when answer is false' do
       before do
         post :create, params: { card_id: card.id, answer: 'blalba' }

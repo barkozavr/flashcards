@@ -14,6 +14,7 @@ en:
       edit: "Edit"
     note:
       it_true: "True!"
+      it_true_with_typo: True, but with one typo. You entered %{answ}, but correct answer is %{translate}.
       it_false: "False!"
       changed: "Changes saved"
       deleted: "Deleted"
