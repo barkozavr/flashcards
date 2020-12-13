@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
+      UsersMailer.user_created(@user).deliver_now
       redirect_to users_path, notice: t('user.note.created')
     else
       render 'new'

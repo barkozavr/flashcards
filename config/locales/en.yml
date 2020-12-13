@@ -77,3 +77,10 @@ en:
       all: "All decks"
       add: "Add a deck"
       cards: "Cards in deck"
+  mail:
+    welcome: "Welcome to flashcards app!"
+    subject: "It's time to review your cards"
+    do_it: "Do it now"
+    have_cards: "You have cards to be reviewed."
+    greeting: "  Hi, %{user}!"
+    click: "Click link below to do it now: %{url}"

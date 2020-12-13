@@ -5,6 +5,7 @@ ruby               '2.6.5'
 
 gem 'bootsnap',           '>= 1.4.2', require: false
 gem 'carrierwave',        '~> 2.0'
+gem 'config'
 gem 'damerau-levenshtein'
 gem 'draper'
 gem 'fog-aws'
@@ -20,12 +21,14 @@ gem 'simple_form'
 gem 'sorcery'
 gem 'turbolinks',         '~> 5'
 gem 'webpacker',          '~> 4.0'
+gem 'whenever',           require: false
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails'
+  gem 'byebug',            platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails' ,     require: 'dotenv/rails-now'
   gem 'factory_bot_rails'
   gem 'pry'
+  gem 'letter_opener'
   gem 'rails-controller-testing'
   gem 'rspec-rails',              '~> 4.0.1'
   gem 'shoulda-matchers',         '~> 4.0'

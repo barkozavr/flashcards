@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def has_linked_github?
     authentications.where(provider: 'github').present?
   end
+
+  def self.notify_training_card
+    User.all.each do |user|
+      if user.cards.out_of_time.any?
+        NotificationsMailer.pending_cards(user).deliver_now
+      end
+    end
+  end
 end

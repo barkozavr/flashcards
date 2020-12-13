@@ -1,0 +1,2 @@
+default_email_from: <%= ENV['DEFAULT_EMAIL_FROM'] %>
+root_url: <%= ENV['ROOT_URL'] %> 

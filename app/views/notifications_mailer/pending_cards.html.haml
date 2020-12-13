@@ -1,0 +1,7 @@
+%h1
+  =I18n.t('mail.greeting', user: @user.email)
+%p
+  =I18n.t('mail.have_cards')
+  %br/
+%p
+  = link_to I18n.t('mail.do_it'), @url
