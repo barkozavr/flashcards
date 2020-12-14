@@ -9,7 +9,15 @@ Rails.application.configure do
   config.log_level = :debug
   config.log_tags = [:request_id]
   config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => ENV["MYDOMAIN"],
+    :user_name => ENV["USERNSME"],
+    :password => ENV["PASS"]
+  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.i18n.fallbacks = true
